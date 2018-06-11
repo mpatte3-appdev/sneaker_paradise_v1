@@ -1,4 +1,6 @@
 class SneakerModel < ApplicationRecord
+  mount_uploader :sneaker_image, SneakerImageUploader
+
   # Direct associations
 
   belongs_to :brand_name,

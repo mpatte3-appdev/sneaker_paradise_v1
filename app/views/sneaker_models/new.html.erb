@@ -14,7 +14,7 @@
 
 <div class="row">
   <div class="col-md-12">
-    <form action="/create_sneaker_model" method="post">
+    <form action="/create_sneaker_model" method="post" enctype="multipart/form-data">
       <!-- Hidden input for authenticity token to protect from forgery -->
       <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
 
@@ -69,7 +69,7 @@
           Sneaker image
         </label>
 
-        <input type="text" id="sneaker_image" name="sneaker_image" placeholder="Sneaker image" class="form-control" value="<%= @sneaker_model.sneaker_image %>">
+        <input type="file" id="sneaker_image" name="sneaker_image" class="form-control">
       </div>
 
       <!-- Label and input for sneaker_id -->
