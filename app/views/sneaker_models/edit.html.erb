@@ -1,0 +1,109 @@
+<!-- Validation failure messages -->
+<% if @sneaker_model.errors.any? %>
+  <% @sneaker_model.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Sneaker Model #<%= @sneaker_model.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_sneaker_model/<%= @sneaker_model.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for initial_release_date -->
+      <div class="form-group">
+        <label for="initial_release_date" class="control-label">
+          Initial release date
+        </label>
+
+        <input type="text" id="initial_release_date" name="initial_release_date" placeholder="Initial release date" class="form-control" value="<%= @sneaker_model.initial_release_date %>">
+      </div>
+
+      <!-- Label and input for release_year -->
+      <div class="form-group">
+        <label for="release_year" class="control-label">
+          Release year
+        </label>
+
+        <input type="text" id="release_year" name="release_year" placeholder="Release year" class="form-control" value="<%= @sneaker_model.release_year %>">
+      </div>
+
+      <!-- Label and input for colorway_name -->
+      <div class="form-group">
+        <label for="colorway_name" class="control-label">
+          Colorway name
+        </label>
+
+        <input type="text" id="colorway_name" name="colorway_name" placeholder="Colorway name" class="form-control" value="<%= @sneaker_model.colorway_name %>">
+      </div>
+
+      <!-- Label and input for brand -->
+      <div class="form-group">
+        <label for="brand" class="control-label">
+          Brand
+        </label>
+
+        <input type="text" id="brand" name="brand" placeholder="Brand" class="form-control" value="<%= @sneaker_model.brand %>">
+      </div>
+
+      <!-- Label and input for lead_designer -->
+      <div class="form-group">
+        <label for="lead_designer" class="control-label">
+          Lead designer
+        </label>
+
+        <input type="text" id="lead_designer" name="lead_designer" placeholder="Lead designer" class="form-control" value="<%= @sneaker_model.lead_designer %>">
+      </div>
+
+      <!-- Label and input for sneaker_image -->
+      <div class="form-group">
+        <label for="sneaker_image" class="control-label">
+          Sneaker image
+        </label>
+
+        <input type="text" id="sneaker_image" name="sneaker_image" placeholder="Sneaker image" class="form-control" value="<%= @sneaker_model.sneaker_image %>">
+      </div>
+
+      <!-- Label and input for sneaker_id -->
+      <div class="form-group">
+        <label for="sneaker_id" class="control-label">
+          Sneaker
+        </label>
+
+        <input type="text" id="sneaker_id" name="sneaker_id" placeholder="Sneaker" class="form-control" value="<%= @sneaker_model.sneaker_id %>">
+      </div>
+
+      <!-- Label and input for designer_id -->
+      <div class="form-group">
+        <label for="designer_id" class="control-label">
+          Designer
+        </label>
+
+        <input type="text" id="designer_id" name="designer_id" placeholder="Designer" class="form-control" value="<%= @sneaker_model.designer_id %>">
+      </div>
+
+      <!-- Label and input for brands_id -->
+      <div class="form-group">
+        <label for="brands_id" class="control-label">
+          Brands
+        </label>
+
+        <input type="text" id="brands_id" name="brands_id" placeholder="Brands" class="form-control" value="<%= @sneaker_model.brands_id %>">
+      </div>
+
+      <button class="btn btn-warning">
+        Update Sneaker Model
+      </button>
+      or
+      <a href="/sneaker_models/<%= @sneaker_model.id %>">Cancel</a>
+    </form>
+  </div>
+</div>
