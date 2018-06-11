@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Designer resource:
+  # CREATE
+  get "/designers/new", :controller => "designers", :action => "new"
+  post "/create_designer", :controller => "designers", :action => "create"
+
+  # READ
+  get "/designers", :controller => "designers", :action => "index"
+  get "/designers/:id", :controller => "designers", :action => "show"
+
+  # UPDATE
+  get "/designers/:id/edit", :controller => "designers", :action => "edit"
+  post "/update_designer/:id", :controller => "designers", :action => "update"
+
+  # DELETE
+  get "/delete_designer/:id", :controller => "designers", :action => "destroy"
+  #------------------------------
+
   # Routes for the Brand resource:
   # CREATE
   get "/brands/new", :controller => "brands", :action => "new"

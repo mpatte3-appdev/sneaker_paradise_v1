@@ -1,0 +1,55 @@
+<!-- Validation failure messages -->
+<% if @designer.errors.any? %>
+  <% @designer.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Designer</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_designer" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for designer_name -->
+      <div class="form-group">
+        <label for="designer_name" class="control-label">
+          Designer name
+        </label>
+
+        <input type="text" id="designer_name" name="designer_name" placeholder="Designer name" class="form-control" value="<%= @designer.designer_name %>">
+      </div>
+
+      <!-- Label and input for sneaker_id -->
+      <div class="form-group">
+        <label for="sneaker_id" class="control-label">
+          Sneaker
+        </label>
+
+        <input type="text" id="sneaker_id" name="sneaker_id" placeholder="Sneaker" class="form-control" value="<%= @designer.sneaker_id %>">
+      </div>
+
+      <!-- Label and input for designer_id -->
+      <div class="form-group">
+        <label for="designer_id" class="control-label">
+          Designer
+        </label>
+
+        <input type="text" id="designer_id" name="designer_id" placeholder="Designer" class="form-control" value="<%= @designer.designer_id %>">
+      </div>
+
+      <button class="btn btn-success">
+        Create Designer
+      </button>
+      or
+      <a href="/designers">Cancel</a>
+    </form>
+  </div>
+</div>
