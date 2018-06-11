@@ -33,7 +33,7 @@
           Sneaker
         </label>
 
-        <input type="text" id="sneaker_id" name="sneaker_id" placeholder="Sneaker" class="form-control" value="<%= @designer.sneaker_id %>">
+        <%= select_tag(:sneaker_id, options_from_collection_for_select(SneakerModel.all, :id, :initial_release_date, @designer.sneaker_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for designer_id -->
