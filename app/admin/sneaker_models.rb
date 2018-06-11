@@ -1,4 +1,6 @@
 ActiveAdmin.register SneakerModel do
+
+ permit_params :initial_release_date, :release_year, :colorway_name, :brand, :lead_designer, :sneaker_image, :sneaker_id, :designer_id, :brands_id
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
