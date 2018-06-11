@@ -9,6 +9,10 @@ class Colorway < ApplicationRecord
 
   # Indirect associations
 
+  has_one    :brand_name,
+             :through => :sneaker_line,
+             :source => :brand_name
+
   # Validations
 
 end

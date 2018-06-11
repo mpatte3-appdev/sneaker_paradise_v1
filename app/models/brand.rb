@@ -7,6 +7,10 @@ class Brand < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :colorways,
+             :through => :sneaker_models,
+             :source => :colorways
+
   has_many   :designers,
              :through => :sneaker_models,
              :source => :designer
