@@ -24,7 +24,7 @@
       <% @sneaker_models.each do |sneaker_model| %>
       <tr>
         <td><%= sneaker_model.initial_release_date %></td>
-        <td><%= sneaker_model.release_year %></td>
+        <td><%= sneaker_model.initial_release_year.sneaker_id %></td>
         <td><%= sneaker_model.colorway_name %></td>
         <td><%= sneaker_model.brand %></td>
         <td><%= sneaker_model.lead_designer %></td>
