@@ -33,7 +33,7 @@
           Release year
         </label>
 
-        <input type="text" id="release_year" name="release_year" placeholder="Release year" class="form-control" value="<%= @sneaker_model.release_year %>">
+        <%= select_tag(:release_year, options_from_collection_for_select(ReleaseYear.all, :id, :sneaker_id, @sneaker_model.release_year), :class => "form-control") %>
       </div>
 
       <!-- Label and input for colorway_name -->
