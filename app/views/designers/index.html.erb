@@ -18,7 +18,7 @@
       <% @designers.each do |designer| %>
       <tr>
         <td><%= designer.designer_name %></td>
-        <td><%= designer.sneaker_id %></td>
+        <td><%= designer.sneaker.initial_release_date %></td>
         <td><%= designer.designer_id %></td>
         <td>
           <a href="/designers/<%= designer.id %>" class="btn btn-primary">Show</a>
