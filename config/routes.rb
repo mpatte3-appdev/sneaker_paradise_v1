@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Release_year resource:
+  # CREATE
+  get "/release_years/new", :controller => "release_years", :action => "new"
+  post "/create_release_year", :controller => "release_years", :action => "create"
+
+  # READ
+  get "/release_years", :controller => "release_years", :action => "index"
+  get "/release_years/:id", :controller => "release_years", :action => "show"
+
+  # UPDATE
+  get "/release_years/:id/edit", :controller => "release_years", :action => "edit"
+  post "/update_release_year/:id", :controller => "release_years", :action => "update"
+
+  # DELETE
+  get "/delete_release_year/:id", :controller => "release_years", :action => "destroy"
+  #------------------------------
+
   # Routes for the Colorway resource:
   # CREATE
   get "/colorways/new", :controller => "colorways", :action => "new"

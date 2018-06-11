@@ -1,0 +1,28 @@
+<div class="page-header">
+  <h1>
+    Release years
+    <a href="/release_years/new" class="btn btn-lg btn-success">New Release year</a>
+  </h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>Sneaker</th>
+        <th>Actions</th>
+      </tr>
+
+      <% @release_years.each do |release_year| %>
+      <tr>
+        <td><%= release_year.sneaker_id %></td>
+        <td>
+          <a href="/release_years/<%= release_year.id %>" class="btn btn-primary">Show</a>
+          <a href="/release_years/<%= release_year.id %>/edit" class="btn btn-warning">Edit</a>
+          <a href="/delete_release_year/<%= release_year.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
