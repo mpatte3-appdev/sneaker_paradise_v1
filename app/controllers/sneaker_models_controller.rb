@@ -1,6 +1,6 @@
 class SneakerModelsController < ApplicationController
   def index
-    @sneaker_models = SneakerModel.all
+    @sneaker_models = SneakerModel.page(params[:page]).per(10)
 
     render("sneaker_models/index.html.erb")
   end

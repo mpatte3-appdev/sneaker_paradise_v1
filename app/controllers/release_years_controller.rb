@@ -1,6 +1,6 @@
 class ReleaseYearsController < ApplicationController
   def index
-    @release_years = ReleaseYear.all
+    @release_years = ReleaseYear.page(params[:page]).per(10)
 
     render("release_years/index.html.erb")
   end

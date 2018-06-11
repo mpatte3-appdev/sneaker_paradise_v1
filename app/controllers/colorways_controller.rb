@@ -1,6 +1,6 @@
 class ColorwaysController < ApplicationController
   def index
-    @colorways = Colorway.all
+    @colorways = Colorway.page(params[:page]).per(10)
 
     render("colorways/index.html.erb")
   end
