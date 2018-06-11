@@ -1,6 +1,7 @@
 class ColorwaysController < ApplicationController
   def index
-    @colorways = Colorway.page(params[:page]).per(10)
+    @q = Colorway.ransack(params[:q])
+    @colorways = @q.result(:distinct => true).includes(:sneaker_line, :brand_name).page(params[:page]).per(10)
 
     render("colorways/index.html.erb")
   end

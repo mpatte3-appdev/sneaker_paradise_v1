@@ -1,6 +1,7 @@
 class DesignersController < ApplicationController
   def index
-    @designers = Designer.page(params[:page]).per(10)
+    @q = Designer.ransack(params[:q])
+    @designers = @q.result(:distinct => true).includes(:sneaker, :brand_name).page(params[:page]).per(10)
 
     render("designers/index.html.erb")
   end

@@ -1,6 +1,7 @@
 class SneakerModelsController < ApplicationController
   def index
-    @sneaker_models = SneakerModel.page(params[:page]).per(10)
+    @q = SneakerModel.ransack(params[:q])
+    @sneaker_models = @q.result(:distinct => true).includes(:colorways, :designer, :initial_release_year, :brand_name).page(params[:page]).per(10)
 
     render("sneaker_models/index.html.erb")
   end

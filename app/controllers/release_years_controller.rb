@@ -1,6 +1,7 @@
 class ReleaseYearsController < ApplicationController
   def index
-    @release_years = ReleaseYear.page(params[:page]).per(10)
+    @q = ReleaseYear.ransack(params[:q])
+    @release_years = @q.result(:distinct => true).includes(:sneaker_models).page(params[:page]).per(10)
 
     render("release_years/index.html.erb")
   end
