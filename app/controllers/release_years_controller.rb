@@ -6,6 +6,7 @@ class ReleaseYearsController < ApplicationController
   end
 
   def show
+    @sneaker_model = SneakerModel.new
     @release_year = ReleaseYear.find(params[:id])
 
     render("release_years/show.html.erb")

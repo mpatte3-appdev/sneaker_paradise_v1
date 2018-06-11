@@ -75,6 +75,35 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_colorway" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for sneaker_id -->
+      <div class="form-group">
+        <label for="sneaker_id" class="control-label">
+          Sneaker
+        </label>
+
+        <%= select_tag(:sneaker_id, options_from_collection_for_select(SneakerModel.all, :id, :initial_release_date), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for colorway_name -->
+      <div class="form-group">
+        <label for="colorway_name" class="control-label">
+          Colorway name
+        </label>
+
+        <input type="text" id="colorway_name" name="colorway_name" placeholder="Colorway name" class="form-control" value="">
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Colorway
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>

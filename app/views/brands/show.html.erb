@@ -54,6 +54,98 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_sneaker_model" method="post" enctype="multipart/form-data">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for initial_release_date -->
+      <div class="form-group">
+        <label for="initial_release_date" class="control-label">
+          Initial release date
+        </label>
+
+        <input type="text" id="initial_release_date" name="initial_release_date" placeholder="Initial release date" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for release_year -->
+      <div class="form-group">
+        <label for="release_year" class="control-label">
+          Release year
+        </label>
+
+        <%= select_tag(:release_year, options_from_collection_for_select(ReleaseYear.all, :id, :sneaker_id), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for colorway_name -->
+      <div class="form-group">
+        <label for="colorway_name" class="control-label">
+          Colorway name
+        </label>
+
+        <input type="text" id="colorway_name" name="colorway_name" placeholder="Colorway name" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for brand -->
+      <div class="form-group">
+        <label for="brand" class="control-label">
+          Brand
+        </label>
+
+        <input type="text" id="brand" name="brand" placeholder="Brand" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for lead_designer -->
+      <div class="form-group">
+        <label for="lead_designer" class="control-label">
+          Lead designer
+        </label>
+
+        <input type="text" id="lead_designer" name="lead_designer" placeholder="Lead designer" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for sneaker_image -->
+      <div class="form-group">
+        <label for="sneaker_image" class="control-label">
+          Sneaker image
+        </label>
+
+        <input type="file" id="sneaker_image" name="sneaker_image" class="form-control">
+      </div>
+
+      <!-- Label and input for sneaker_id -->
+      <div class="form-group">
+        <label for="sneaker_id" class="control-label">
+          Sneaker
+        </label>
+
+        <input type="text" id="sneaker_id" name="sneaker_id" placeholder="Sneaker" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for designer_id -->
+      <div class="form-group">
+        <label for="designer_id" class="control-label">
+          Designer
+        </label>
+
+        <input type="text" id="designer_id" name="designer_id" placeholder="Designer" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for brands_id -->
+      <div class="form-group">
+        <label for="brands_id" class="control-label">
+          Brands
+        </label>
+
+        <%= select_tag(:brands_id, options_from_collection_for_select(Brand.all, :id, :sneaker_id), :class => "form-control") %>
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Sneaker Model
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>

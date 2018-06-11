@@ -6,6 +6,7 @@ class SneakerModelsController < ApplicationController
   end
 
   def show
+    @colorway = Colorway.new
     @sneaker_model = SneakerModel.find(params[:id])
 
     render("sneaker_models/show.html.erb")
