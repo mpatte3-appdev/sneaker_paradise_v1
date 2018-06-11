@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  ActiveAdmin.routes(self)
   root :to => "sneaker_models#index"
   # Routes for the Designer resource:
   # CREATE
