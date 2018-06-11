@@ -6,6 +6,10 @@ class Designer < ApplicationRecord
 
   # Indirect associations
 
+  has_one    :brand_name,
+             :through => :sneaker,
+             :source => :brand_name
+
   # Validations
 
 end
