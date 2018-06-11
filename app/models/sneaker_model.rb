@@ -1,6 +1,11 @@
 class SneakerModel < ApplicationRecord
   # Direct associations
 
+  belongs_to :brand_name,
+             :class_name => "Brand",
+             :foreign_key => "brands_id",
+             :counter_cache => true
+
   belongs_to :initial_release_year,
              :class_name => "ReleaseYear",
              :foreign_key => "release_year",
