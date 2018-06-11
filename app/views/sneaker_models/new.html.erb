@@ -96,7 +96,7 @@
           Brands
         </label>
 
-        <input type="text" id="brands_id" name="brands_id" placeholder="Brands" class="form-control" value="<%= @sneaker_model.brands_id %>">
+        <%= select_tag(:brands_id, options_from_collection_for_select(Brand.all, :id, :sneaker_id, @sneaker_model.brands_id), :class => "form-control") %>
       </div>
 
       <button class="btn btn-success">
