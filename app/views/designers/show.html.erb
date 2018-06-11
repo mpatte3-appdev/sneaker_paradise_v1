@@ -9,7 +9,13 @@
       <dd><%= @designer.designer_name %></dd>
 
       <dt>Sneaker</dt>
-      <dd><%= @designer.sneaker_id %></dd>
+      <dd>
+        <% if @designer.sneaker.present? %>
+          <a href="/sneaker_models/<%= @designer.sneaker_id %>">
+            <%= @designer.sneaker.initial_release_date %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Designer</dt>
       <dd><%= @designer.designer_id %></dd>

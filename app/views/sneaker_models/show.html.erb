@@ -9,7 +9,13 @@
       <dd><%= @sneaker_model.initial_release_date %></dd>
 
       <dt>Release year</dt>
-      <dd><%= @sneaker_model.release_year %></dd>
+      <dd>
+        <% if @sneaker_model.initial_release_year.present? %>
+          <a href="/release_years/<%= @sneaker_model.release_year %>">
+            <%= @sneaker_model.initial_release_year.sneaker_id %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Colorway name</dt>
       <dd><%= @sneaker_model.colorway_name %></dd>
@@ -30,7 +36,13 @@
       <dd><%= @sneaker_model.designer_id %></dd>
 
       <dt>Brands</dt>
-      <dd><%= @sneaker_model.brands_id %></dd>
+      <dd>
+        <% if @sneaker_model.brand_name.present? %>
+          <a href="/brands/<%= @sneaker_model.brands_id %>">
+            <%= @sneaker_model.brand_name.sneaker_id %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 

@@ -6,7 +6,13 @@
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
       <dt>Sneaker</dt>
-      <dd><%= @colorway.sneaker_id %></dd>
+      <dd>
+        <% if @colorway.sneaker_line.present? %>
+          <a href="/sneaker_models/<%= @colorway.sneaker_id %>">
+            <%= @colorway.sneaker_line.initial_release_date %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Colorway name</dt>
       <dd><%= @colorway.colorway_name %></dd>

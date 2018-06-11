@@ -16,7 +16,13 @@
 
       <% @colorways.each do |colorway| %>
       <tr>
-        <td><%= colorway.sneaker_line.initial_release_date %></td>
+        <td>
+          <% if colorway.sneaker_line.present? %>
+            <a href="/sneaker_models/<%= colorway.sneaker_line.id %>">
+              <%= colorway.sneaker_line.initial_release_date %>
+            </a>
+          <% end %>
+        </td>
         <td><%= colorway.colorway_name %></td>
         <td>
           <a href="/colorways/<%= colorway.id %>" class="btn btn-primary">Show</a>
