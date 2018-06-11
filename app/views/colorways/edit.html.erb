@@ -1,0 +1,46 @@
+<!-- Validation failure messages -->
+<% if @colorway.errors.any? %>
+  <% @colorway.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Colorway #<%= @colorway.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_colorway/<%= @colorway.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for sneaker_id -->
+      <div class="form-group">
+        <label for="sneaker_id" class="control-label">
+          Sneaker
+        </label>
+
+        <input type="text" id="sneaker_id" name="sneaker_id" placeholder="Sneaker" class="form-control" value="<%= @colorway.sneaker_id %>">
+      </div>
+
+      <!-- Label and input for colorway_name -->
+      <div class="form-group">
+        <label for="colorway_name" class="control-label">
+          Colorway name
+        </label>
+
+        <input type="text" id="colorway_name" name="colorway_name" placeholder="Colorway name" class="form-control" value="<%= @colorway.colorway_name %>">
+      </div>
+
+      <button class="btn btn-warning">
+        Update Colorway
+      </button>
+      or
+      <a href="/colorways/<%= @colorway.id %>">Cancel</a>
+    </form>
+  </div>
+</div>

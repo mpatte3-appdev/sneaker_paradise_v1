@@ -1,0 +1,28 @@
+<div class="page-header">
+  <h3>Colorway #<%= @colorway.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>Sneaker</dt>
+      <dd><%= @colorway.sneaker_id %></dd>
+
+      <dt>Colorway name</dt>
+      <dd><%= @colorway.colorway_name %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/colorways" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/colorways/<%= @colorway.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_colorway/<%= @colorway.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>

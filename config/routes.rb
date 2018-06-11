@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Colorway resource:
+  # CREATE
+  get "/colorways/new", :controller => "colorways", :action => "new"
+  post "/create_colorway", :controller => "colorways", :action => "create"
+
+  # READ
+  get "/colorways", :controller => "colorways", :action => "index"
+  get "/colorways/:id", :controller => "colorways", :action => "show"
+
+  # UPDATE
+  get "/colorways/:id/edit", :controller => "colorways", :action => "edit"
+  post "/update_colorway/:id", :controller => "colorways", :action => "update"
+
+  # DELETE
+  get "/delete_colorway/:id", :controller => "colorways", :action => "destroy"
+  #------------------------------
+
   # Routes for the Sneaker_model resource:
   # CREATE
   get "/sneaker_models/new", :controller => "sneaker_models", :action => "new"
